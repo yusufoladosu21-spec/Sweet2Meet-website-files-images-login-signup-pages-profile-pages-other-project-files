@@ -1,2 +1,7 @@
-# Sweet2Meet-website-files-images-login-signup-pages-profile-pages-other-project-files
-Sweet2Meet — a simple platform for meeting new people and connecting with others
+# Sweet2Meet
+
+Sweet2Meet is a simple platform for meeting new people and connecting with others.
+
+## Project
+
+We are building Sweet2Meet step by step.
