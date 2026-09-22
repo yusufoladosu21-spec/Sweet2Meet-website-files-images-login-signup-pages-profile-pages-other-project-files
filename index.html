@@ -1,166 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweet2Meet</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet2Meet</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff7fb;
-      color: #222;
-      text-align: center;
-    }
-
-    header {
-      padding: 25px 20px;
-      background: white;
-    }
-
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      color: #e83e8c;
-    }
-
-    .hero {
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #ffe1ef, #fff7fb);
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-      color: #d63384;
-    }
-
-    .hero p {
-      font-size: 19px;
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .signup {
-      background: #e83e8c;
-      color: white;
-    }
-
-    .login {
-      background: white;
-      color: #d63384;
-      border: 2px solid #e83e8c;
-    }
-
-    .features {
-      padding: 50px 20px;
-      background: white;
-    }
-
-    .features h2 {
-      color: #d63384;
-      margin-bottom: 30px;
-    }
-
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .card {
-      width: 250px;
-      padding: 25px;
-      border-radius: 18px;
-      background: #fff7fb;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: #d63384;
-    }
-
-    footer {
-      padding: 25px;
-      background: #222;
-      color: white;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 34px;
-      }
-    }
-  </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#fff7fb;
+  color:#222;
+}
+header{
+  background:linear-gradient(135deg,#ff4f81,#ff7aa2);
+  color:white;
+  padding:22px 18px;
+  text-align:center;
+}
+.logo{
+  font-size:30px;
+  font-weight:bold;
+}
+.tagline{
+  margin-top:7px;
+  font-size:14px;
+}
+.container{
+  max-width:700px;
+  margin:auto;
+  padding:25px 18px 50px;
+}
+.card{
+  background:white;
+  border-radius:18px;
+  padding:24px;
+  margin-bottom:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+h1,h2{
+  margin-bottom:12px;
+}
+p{
+  line-height:1.6;
+  margin-bottom:15px;
+}
+button{
+  border:0;
+  border-radius:12px;
+  padding:13px 20px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.primary{
+  background:#ff4f81;
+  color:white;
+}
+.secondary{
+  background:#ffe0ea;
+  color:#d92e60;
+}
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  margin:7px 0 14px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:15px;
+}
+label{
+  font-weight:bold;
+  font-size:14px;
+}
+.nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:18px;
+}
+.nav button{
+  background:white;
+  color:#d92e60;
+}
+.hidden{
+  display:none;
+}
+.profile{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
+}
+.avatar{
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  background:#ffd1df;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+.profile:last-child{
+  border-bottom:0;
+}
+.small{
+  font-size:13px;
+  color:#777;
+}
+footer{
+  text-align:center;
+  padding:25px;
+  color:#777;
+  font-size:13px;
+}
+.success{
+  background:#e7f8ed;
+  color:#24733c;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Sweet2Meet 💕</div>
-  </header>
+<header>
+  <div class="logo">💗 Sweet2Meet</div>
+  <div class="tagline">Meet new people. Make real connections.</div>
 
-  <section class="hero">
-    <h1>Meet Someone Special</h1>
+  <div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('discover')">Discover</button>
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="showPage('signup')">Sign Up</button>
+  </div>
+</header>
 
-    <p>
-      Welcome to Sweet2Meet — a simple place to meet new people,
-      make connections, and start something meaningful.
-    </p>
+<div class="container">
 
-    <div class="buttons">
-      <a href="#" class="btn signup">Create Account</a>
-      <a href="#" class="btn login">Login</a>
+  <!-- HOME -->
+  <section id="home" class="page">
+    <div class="card" style="text-align:center">
+      <h1>Welcome to Sweet2Meet 💕</h1>
+      <p>
+        A simple place to meet new people, discover interesting profiles,
+        and start meaningful conversations.
+      </p>
+
+      <button class="primary" onclick="showPage('signup')">
+        Create an Account
+      </button>
+
+      <button class="secondary" onclick="showPage('discover')">
+        Discover People
+      </button>
+    </div>
+
+    <div class="card">
+      <h2>How Sweet2Meet works</h2>
+      <p>💗 Create your profile.</p>
+      <p>🔎 Discover new people.</p>
+      <p>💬 Start conversations.</p>
+      <p>📧 Share your email when you choose to connect outside the site.</p>
     </div>
   </section>
 
-  <section class="features">
-    <h2>Why Sweet2Meet?</h2>
+  <!-- SIGN UP -->
+  <section id="signup" class="page hidden">
+    <div class="card">
+      <h2>Create your Sweet2Meet account</h2>
 
-    <div class="cards">
-      <div class="card">
-        <h3>💬 Meet People</h3>
-        <p>Discover and connect with new people.</p>
+      <form onsubmit="createAccount(event)">
+        <label>Full name</label>
+        <input id="signupName" type="text" placeholder="Your name" required>
+
+        <label>Email address</label>
+        <input id="signupEmail" type="email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Create a password" required>
+
+        <label>Age</label>
+        <input type="number" min="18" placeholder="18+" required>
+
+        <label>About you</label>
+        <textarea placeholder="Tell people a little about yourself"></textarea>
+
+        <button class="primary" type="submit">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="login" class="page hidden">
+    <div class="card">
+      <h2>Welcome back 💗</h2>
+
+      <form onsubmit="login(event)">
+        <label>Email address</label>
+        <input type="email" placeholder="you@example.com" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Your password" required>
+
+        <button class="primary" type="submit">
+          Login
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- DISCOVER -->
+  <section id="discover" class="page hidden">
+    <div class="card">
+      <h2>Discover people</h2>
+      <p class="small">
+        Explore example profiles. Real profiles will appear here once
+        account and database features are connected.
+      </p>
+
+      <div class="profile">
+        <div class="avatar">😊</div>
+        <div>
+          <strong>Alex</strong>
+          <p class="small">Enjoys music, travelling and meeting new people.</p>
+          <button class="secondary" onclick="viewProfile('Alex')">
+            View Profile
+          </button>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>❤️ Make Connections</h3>
-        <p>Build genuine relationships and friendships.</p>
+      <div class="profile">
+        <div class="avatar">🌸</div>
+        <div>
+          <strong>Sarah</strong>
+          <p class="small">Loves good conversations and discovering new places.</p>
+          <button class="secondary" onclick="viewProfile('Sarah')">
+            View Profile
+          </button>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>🔒 Simple & Easy</h3>
-        <p>A clean and simple experience for everyone.</p>
+      <div class="profile">
+        <div class="avatar">😎</div>
+        <div>
+          <strong>Daniel</strong>
+          <p class="small">Friendly, relaxed and always open to meeting people.</p>
+          <button class="secondary" onclick="viewProfile('Daniel')">
+            View Profile
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 Sweet2Meet. All rights reserved.</p>
-  </footer>
+  <!-- PROFILE -->
+  <section id="profile" class="page hidden">
+    <div class="card">
+      <h2>Your Profile</h2>
+
+      <label>Name</label>
+      <input id="profileName" type="text" placeholder="Your name">
+
+      <label>Email</label>
+      <input id="profileEmail" type="email" placeholder="Your email">
+
+      <label>About you</label>
+      <textarea id="profileAbout"
+        placeholder="Tell people about yourself"></textarea>
+
+      <button class="primary" onclick="saveProfile()">
+        Save Profile
+      </button>
+
+      <div id="profileMessage"></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Sweet2Meet — Meet new people, simply.
+</footer>
+
+<script>
+function showPage(pageId){
+  document.querySelectorAll('.page').forEach(function(page){
+    page.classList.add('hidden');
+  });
+
+  document.getElementById(pageId).classList.remove('hidden');
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+}
+
+function createAccount(event){
+  event.preventDefault();
+
+  const name = document.getElementById('signupName').value;
+  const email = document.getElementById('signupEmail').value;
+
+  localStorage.setItem('sweet2meetName', name);
+  localStorage.setItem('sweet2meetEmail', email);
+
+  alert('Welcome to Sweet2Meet, ' + name + '!');
+
+  document.getElementById('profileName').value = name;
+  document.getElementById('profileEmail').value = email;
+
+  showPage('profile');
+}
+
+function login(event){
+  event.preventDefault();
+
+  alert('Login screen is ready. Real secure authentication will be connected in the next stage.');
+
+  showPage('discover');
+}
+
+function viewProfile(name){
+  alert('You selected ' + name + '.');
+
+  showPage('profile');
+}
+
+function saveProfile(){
+  const name = document.getElementById('profileName').value;
+  const email = document.getElementById('profileEmail').value;
+
+  localStorage.setItem('sweet2meetName', name);
+  localStorage.setItem('sweet2meetEmail', email);
+
+  document.getElementById('profileMessage').innerHTML =
+    '<div class="success">Profile saved successfully 💗</div>';
+}
+
+window.onload = function(){
+  const savedName = localStorage.getItem('sweet2meetName');
+  const savedEmail = localStorage.getItem('sweet2meetEmail');
+
+  if(savedName){
+    document.getElementById('profileName').value = savedName;
+  }
+
+  if(savedEmail){
+    document.getElementById('profileEmail').value = savedEmail;
+  }
+};
+</script>
 
 </body>
 </html>
